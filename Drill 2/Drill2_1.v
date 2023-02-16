@@ -10,7 +10,6 @@ module drill2_1;
         d=8'hAF;
         e=10'b01;
         f=2+3'd10;
-
         g=32;
         h=-5;
         j=3.6E2;

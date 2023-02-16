@@ -5,9 +5,9 @@
 `define STOP $finish
 `define REGME reg [8*31:0]
 `ifdef TEST_1
-	`include "../Drill 1/drill1_1.v"
+	`include "../Drill 1/Drill1_1.v"
 `else
-	`include "./Drill 1/drill1_2.v"
+	`include "../Drill 1/Drill1_1.v"
 `endif
 
 module testbench;
