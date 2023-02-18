@@ -14,6 +14,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	testbench1_2
 
+} {} {}} {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 2/exercise2_1.v} {1 {vlog -work work -stats=none {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 2/exercise2_1.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module exercise2_1
+
+Top level modules:
+	exercise2_1
+
 } {} {}} {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 2/drill2_2.v} {1 {vlog -work work -stats=none {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 2/drill2_2.v}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module drill2_2
