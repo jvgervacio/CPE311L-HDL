@@ -1,112 +1,115 @@
-module exercise3_1(x, y, out1, out2, out3);
-	input x, y;
-	output out1, out2, out3;
+module exercise3_1(a, b, out);
+	input 	a, b;
+	output 	out[2:0];
 	
-	buf U1(out1, x);
-	nand U2(out2, x, y);
-	xnor U3(out3, x, y);
-	
-	
+	buf 	(out[0], a);
+	nand 	(out[1], a, b);
+	xnor 	(out[2], a, b);
+
 endmodule
 
-module start3_1;
-	wire w1, w2, w3;
-	reg x1, y1;
-	
-	exercise3_1 start3_1(x1, y1, w1, w2, w3);
+module exercise3_1_TB;
+	wire 	out[2:0];
+	reg 	a, b;
+	test2_2	tb2;
+	circuit2_2 t2_2(a, b, out[0]);
 	initial begin
-		x1=1'b0; y1=1'b0;
+		a=1'b0; 	b=1'b0;
 		#200 $finish;
 	end
 	initial begin
-		#2 $display("Truth table of buf: ");
-		#2 x1=1'b0;
-		#2 $display("x", " ", "out");
-		#2 $display(x1,"  ",w1);
-		#2 x1=1'b1;
-		#2 $display(x1,"  ",w1);
-		#2 x1=1'bx;
-		#2 $display(x1,"  ",w1);
-		#2 x1=1'bz;
-		#2 $display(x1,"  ",w1);
-		#2 $display("");
+		// TRUTH TABLE FOR BUF
+		#2 $display("\nTRUTH TABLE FOR BUF: ");
+		#2 $display("a \tout");
+
+		#2 a=1'b0;
+		#2 $display("%b	\t%b", a, out[0]);
+		#2 a=1'b1;
+		#2 $display("%b	\t%b", a, out[0]);
+		#2 a=1'bx;
+		#2 $display("%b \t%b", a, out[0]);
+		#2 a=1'bz;
+		#2 $display("%b \t%b", a, out[0]);
+
+		// TRUTH TABLE FOR NAND
+		#2 $display("\nTRUTH TABLE FOR NAND: ");
+		#2 $display("a\t b \tout");
+
+		#2 a=1'b0;	b=1'b0;
+		#2 $display("%b	\t%b \t%b", a, b, out[1]);
+		#2 a=1'b0;	b=1'b1;
+		#2 $display("%b	\t%b \t%b", a, b, out[1]);
+		#2 a=1'b0;	b=1'bx;
+		#2 $display("%b	\t%b \t%b", a, b, out[1]);
+		#2 a=1'b0;	b=1'bz;
+		#2 $display("%b	\t%b \t%b", a, b, out[1]);
+
+		#2 a=1'b1;	b=1'b0;
+		#2 $display("%b	\t%b \t%b", a, b, out[1]);
+		#2 a=1'b1;	b=1'b1;
+		#2 $display("%b	\t%b \t%b", a, b, out[1]);
+		#2 a=1'b1;	b=1'bx;
+		#2 $display("%b	\t%b \t%b", a, b, out[1]);
+		#2 a=1'b1;	b=1'bz;
+		#2 $display("%b	\t%b \t%b", a, b, out[1]);
 		
-		#2 $display("Truth table for nand: ");
-		#2 x1=1'b0; y1=1'b0;
-		#2 $display("x", " ", "y", ," ", "out");
-		#2 $display(x1, " ",y1, "   ", w2);
-		#2 x1=1'b0; y1=1'b1;
-		#2 $display(x1, " ",y1, "   ", w2);
-		#2 x1=1'b0; y1=1'bx;
-		#2 $display(x1, " ",y1, "   ", w2);
-		#2 x1=1'b0; y1=1'bz;
-		#2 $display(x1, " ",y1, "   ", w2);
+		#2 a=1'bx;	b=1'b0;
+		#2 $display("%b	\t%b \t%b", a, b, out[1]);
+		#2 a=1'bx;	b=1'b1;
+		#2 $display("%b	\t%b \t%b", a, b, out[1]);
+		#2 a=1'bx;	b=1'bx;
+		#2 $display("%b	\t%b \t%b", a, b, out[1]);
+		#2 a=1'bx;	b=1'bz;
+		#2 $display("%b	\t%b \t%b", a, b, out[1]);
+
+		#2 a=1'bz;	b=1'b0;
+		#2 $display("%b	\t%b \t%b", a, b, out[1]);
+		#2 a=1'bz;	b=1'b1;
+		#2 $display("%b	\t%b \t%b", a, b, out[1]);
+		#2 a=1'bz;	b=1'bx;
+		#2 $display("%b	\t%b \t%b", a, b, out[1]);
+		#2 a=1'bz;	b=1'bz;
+		#2 $display("%b	\t%b \t%b", a, b, out[1]);
+
+
+		// TRUTH TABLE FOR XNOR
+		#2 $display("\nTRUTH TABLE FOR XNOR: ");
+		#2 $display("a\t b \tout");
 		
-		#2 x1=1'b1; y1=1'b0;
-		#2 $display(x1, " ",y1, "   ", w2);
-		#2 x1=1'b1; y1=1'b1;
-		#2 $display(x1, " ",y1, "   ", w2);
-		#2 x1=1'b1; y1=1'bx;
-		#2 $display(x1, " ",y1, "   ", w2);
-		#2 x1=1'b1; y1=1'bz;
-		#2 $display(x1, " ",y1, "   ", w2);
+		#2 a=1'b0;	b=1'b0;
+		#2 $display("%b	\t%b \t%b", a, b, out[2]);
+		#2 a=1'b0;	b=1'b1;
+		#2 $display("%b	\t%b \t%b", a, b, out[2]);
+		#2 a=1'b0;	b=1'bx;
+		#2 $display("%b	\t%b \t%b", a, b, out[2]);
+		#2 a=1'b0;	b=1'bz;
+		#2 $display("%b	\t%b \t%b", a, b, out[2]);
+
+		#2 a=1'b1;	b=1'b0;
+		#2 $display("%b	\t%b \t%b", a, b, out[2]);
+		#2 a=1'b1;	b=1'b1;
+		#2 $display("%b	\t%b \t%b", a, b, out[2]);
+		#2 a=1'b1;	b=1'bx;
+		#2 $display("%b	\t%b \t%b", a, b, out[2]);
+		#2 a=1'b1;	b=1'bz;
+		#2 $display("%b	\t%b \t%b", a, b, out[2]);
 		
-		#2 x1=1'bx; y1=1'b0;
-		#2 $display(x1, " ",y1, "   ", w2);
-		#2 x1=1'bx; y1=1'b1;
-		#2 $display(x1, " ",y1, "   ", w2);
-		#2 x1=1'bx; y1=1'bx;
-		#2 $display(x1, " ",y1, "   ", w2);
-		#2 x1=1'bx; y1=1'bz;
-		#2 $display(x1, " ",y1, "   ", w2);
-		
-		#2 x1=1'bz; y1=1'b0;
-		#2 $display(x1, " ",y1, "   ", w2);
-		#2 x1=1'bz; y1=1'b1;
-		#2 $display(x1, " ",y1, "   ", w2);
-		#2 x1=1'bz; y1=1'bx;
-		#2 $display(x1, " ",y1, "   ", w2);
-		#2 x1=1'bz; y1=1'bz;
-		#2 $display(x1, " ",y1, "   ", w2);
-		#2 $display("");
-		
-		#2 $display("Truth table for xnor: ");
-		#2 x1=1'b0; y1=1'b0;
-		#2 $display("x", " ", "y", ," ", "out");
-		#2 $display(x1, " ",y1, "   ", w3);
-		#2 x1=1'b0; y1=1'b1;
-		#2 $display(x1, " ",y1, "   ", w3);
-		#2 x1=1'b0; y1=1'bx;
-		#2 $display(x1, " ",y1, "   ", w3);
-		#2 x1=1'b0; y1=1'bz;
-		#2 $display(x1, " ",y1, "   ", w3);
-		
-		#2 x1=1'b1; y1=1'b0;
-		#2 $display(x1, " ",y1, "   ", w3);
-		#2 x1=1'b1; y1=1'b1;
-		#2 $display(x1, " ",y1, "   ", w3);
-		#2 x1=1'b1; y1=1'bx;
-		#2 $display(x1, " ",y1, "   ", w3);
-		#2 x1=1'b1; y1=1'bz;
-		#2 $display(x1, " ",y1, "   ", w3);
-		
-		#2 x1=1'bx; y1=1'b0;
-		#2 $display(x1, " ",y1, "   ", w3);
-		#2 x1=1'bx; y1=1'b1;
-		#2 $display(x1, " ",y1, "   ", w3);
-		#2 x1=1'bx; y1=1'bx;
-		#2 $display(x1, " ",y1, "   ", w3);
-		#2 x1=1'bx; y1=1'bz;
-		#2 $display(x1, " ",y1, "   ", w3);
-		
-		#2 x1=1'bz; y1=1'b0;
-		#2 $display(x1, " ",y1, "   ", w3);
-		#2 x1=1'bz; y1=1'b1;
-		#2 $display(x1, " ",y1, "   ", w3);
-		#2 x1=1'bz; y1=1'bx;
-		#2 $display(x1, " ",y1, "   ", w3);
-		#2 x1=1'bz; y1=1'bz;
-		#2 $display(x1, " ",y1, "   ", w3);
-		#2 $display("");
+		#2 a=1'bx;	b=1'b0;
+		#2 $display("%b	\t%b \t%b", a, b, out[2]);
+		#2 a=1'bx;	b=1'b1;
+		#2 $display("%b	\t%b \t%b", a, b, out[2]);
+		#2 a=1'bx;	b=1'bx;
+		#2 $display("%b	\t%b \t%b", a, b, out[2]);
+		#2 a=1'bx;	b=1'bz;
+		#2 $display("%b	\t%b \t%b", a, b, out[2]);
+
+		#2 a=1'bz;	b=1'b0;
+		#2 $display("%b	\t%b \t%b", a, b, out[2]);
+		#2 a=1'bz;	b=1'b1;
+		#2 $display("%b	\t%b \t%b", a, b, out[2]);
+		#2 a=1'bz;	b=1'bx;
+		#2 $display("%b	\t%b \t%b", a, b, out[2]);
+		#2 a=1'bz;	b=1'bz;
+		#2 $display("%b	\t%b \t%b", a, b, out[2]);
 	end
 endmodule

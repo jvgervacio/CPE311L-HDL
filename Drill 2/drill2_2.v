@@ -2,8 +2,8 @@
 module drill2_2;
 	reg [3:0]Ctr, Xnr, Fdr;
 	initial begin
-		Ctr=4'd0; Fdr=4'd11;
- 		#5 Xnr = (Ctr !=0) ? (Ctr *+ 1) : ^Fdr;
+		Ctr=4'd0;	Fdr=4'd11;
+ 		#5 	Xnr = (Ctr !=0) ? (Ctr *+ 1) : ^Fdr;
 		#10 $display(Xnr);
 		#15 Xnr=-9%2; Fdr=52<8'hFF;
 		#20 $display(Xnr," ",Fdr);

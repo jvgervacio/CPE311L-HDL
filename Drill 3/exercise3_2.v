@@ -1,28 +1,28 @@
 module exercise3_2(w, x, y, z, out1, out2, out3, out4);
-	input w, x, y, z;
-	output out1, out2, out3, out4;
-	wire wNot, xNot, yNot, zNot, and1, and2, and3, and4, and5, and6;
+	input 	w, x, y, z;
+	output 	out1, out2, out3, out4;
+	wire 	wNot, xNot, yNot, zNot, and1, and2, and3, and4, and5, and6;
 	
-	not U1(wNot, w);
-	not U2(xNot, x);
-	not U3(yNot, y);
-	not U4(zNot, z);
+	not 	U1(wNot, w);
+	not 	U2(xNot, x);
+	not 	U3(yNot, y);
+	not 	U4(zNot, z);
 	
 	//1000
-	buf U5(out1, x);
+	buf 	U5(out1, x);
 	
 	//0100
-	and U6(and1, x, z);
-	and U7(and2, x, y);
-	or U8(out2, and1, and2);
+	and 	U6(and1, x, z);
+	and 	U7(and2, x, y);
+	or 		U8(out2, and1, and2);
 	
 	//0010
-	and U9(and3, yNot, zNot);
-	and U10(and4, y, z);
-	or U11(out3, and3, and4);
+	and 	U9(and3, yNot, zNot);
+	and 	U10(and4, y, z);
+	or 		U11(out3, and3, and4);
 	
 	//0001
-	buf U14(out4, zNot);
+	buf 	U14(out4, zNot);
 	
 endmodule
 

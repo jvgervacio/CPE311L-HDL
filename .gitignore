@@ -1,3 +1,5 @@
-work
-*.mpf
-transcript
+/HDL.cr.mti
+/transcript
+/vsim.wlf
+/work
+/HDL.mpf

@@ -1,10 +1,9 @@
-`define pi 3.1416
+`define PI 3.1416
 module exercise2_3;
-	real r,s,AnsrRem;
+	real r, AnsrRem;
 	initial begin
 		r = 9;
-		s = 4/3;
-		AnsrRem = s*`pi*r*r*r;
-		$display("The volume of the cylinder is equal to ", AnsrRem, " cubic units");
+		AnsrRem = (4/3)*`PI*$pow(r, 3);
+		$display("%0.3f cubic units", AnsrRem);
 	end
 endmodule

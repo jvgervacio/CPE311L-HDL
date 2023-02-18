@@ -1,8 +1,8 @@
 //Verilog model of circuit of Fig 2.1
 module circuit2_1(V, W, X, Y, Z, out1);
 
-	input V, W, X, Y, Z;
-	output out1;
+	input 	V, W, X, Y, Z;
+	output 	out1;
 	wire Vnot, Wnot, Xnot, Ynot, Znot, or1, or2, or3;
 	
 	not     U1(Vnot, V),                    U2(Wnot, W),                U3(Xnot, X);
@@ -14,8 +14,8 @@ module circuit2_1(V, W, X, Y, Z, out1);
 endmodule
 
 module test2_1;
-	wire w1;
-	reg x1, x2, x3, x4, x5;
+	wire 	w1;
+	reg 	x1, x2, x3, x4, x5;
 	
 	circuit2_1 test2_1(x1, x2, x3, x4, x5, w1);
 	initial begin

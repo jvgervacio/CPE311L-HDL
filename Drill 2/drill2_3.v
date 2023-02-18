@@ -12,7 +12,7 @@
 
 module testbench;
 	`REGME	regVar;
-	reg	a, b,borrowIn;
+	reg		a, b, borrowIn;
 	wire	diff, borrowOut;
 	full_subtract		fs(diff, borrowOut, a, b, borrowIn);
 	

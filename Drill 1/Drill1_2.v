@@ -24,6 +24,7 @@ module testingFS();
         #10 borrowIn=1'b1;
     end
     initial begin
+        
         $display("a b borrowIn difference borrowOut time");
         $monitor("%b %b %b %b %b %t", a, b, borrowIn, diff, borrowOut, $time);
         #50 $finish;

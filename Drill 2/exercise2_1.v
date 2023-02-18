@@ -1,17 +1,16 @@
+`define BYTE 8
+
 module exercise2_1;
-	reg[0:7] a;
-	reg [8:0] b,c,d,e,f,g,h,i,j;
-	
+	integer a;
+	real b;
+	reg [(`BYTE*20) - 1: 0] str;
 	initial begin
-		a = 8'h F1;
-		b = 2E4;
-		c = 8'h 48;
-		d = 8'h 65;
-		e = 8'h 6c;
-		f = 8'h 6c;
-		g = 8'h 6f;
-		$display("%h %d", a, b,);
-		$display("\\"," %% ", "\t ","\"");
-		$display("%c%C%C%C%C",c,d,e,f,g);
+		a = 8'hF1;
+		b = 5E3;
+		str = "Hello";
+		$display("%0H\t%0.0e", a, b);
+		$display("\\ %% \t \"");
+		$display("%0s", str);
+		$display("%s", a > b ? "gt": "lt");
 	end
 endmodule 
