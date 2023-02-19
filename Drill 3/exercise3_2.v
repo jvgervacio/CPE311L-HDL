@@ -1,76 +1,53 @@
-module exercise3_2(w, x, y, z, out1, out2, out3, out4);
-	input 	w, x, y, z;
-	output 	out1, out2, out3, out4;
-	wire 	wNot, xNot, yNot, zNot, and1, and2, and3, and4, and5, and6;
+module bcd_9s_complement(
+	input	[3:0]	A,
+	output	[3:0]	X);
 	
-	not 	U1(wNot, w);
-	not 	U2(xNot, x);
-	not 	U3(yNot, y);
-	not 	U4(zNot, z);
+	wire [3:0] a_not;
+	wire [1:0] w;
+
+	// X[3] = ~A[3]⋅ ~A[2]⋅ ~A[1]
+	// X[2] = ~A[2]⋅ A[1] + A[2]⋅ ~A[1]
+	// X[1] = A[1]
+	// X[0] = ~A[0]
+
+	not 
+		n1(a_not[0], A[0]),
+		n2(a_not[1], A[1]),
+		n3(a_not[2], A[2]),
+		n4(a_not[3], A[3]);
+
+	and 
+		a1(X[3], a_not[3],  a_not[2],	a_not[1]),
+		a2(w[0], a_not[2],  	A[1]),
+		a3(w[1], 	 A[2],  a_not[1]);
+		
+	or	(X[2], w[0], w[1]);
 	
-	//1000
-	buf 	U5(out1, x);
-	
-	//0100
-	and 	U6(and1, x, z);
-	and 	U7(and2, x, y);
-	or 		U8(out2, and1, and2);
-	
-	//0010
-	and 	U9(and3, yNot, zNot);
-	and 	U10(and4, y, z);
-	or 		U11(out3, and3, and4);
-	
-	//0001
-	buf 	U14(out4, zNot);
+	assign X[0] = a_not[0];
+	assign X[1] = A[1];
 	
 endmodule
 
-module start3_2;
-	wire o1, o2, o3, o4;
-	reg w1, x1, y1, z1;
+module exercise3_2;
+	reg 	[3:0] BCD;
+	wire 	[3:0] nBCD;
 	
-	exercise3_2 start3_2(w1, x1, y1, z1, o1, o2, o3, o4);
+	bcd_9s_complement bcd(BCD, nBCD);
+
 	initial begin
-		w1=1'bx; x1=1'bx; y1=1'bx; z1=1'bx;
-		#300 $finish;
-	end
-	
-	initial begin
-		#2 $display("BCD to 9's Complement Truth Table: ");
-		#2 $display("--BCD--", "  --9's Comp--");
-		#2 $display("w", " ", "x", " ", "y", " ", "z", "   ", "Q1", " ", "Q2", " ", "Q3", " ", "Q4");
-		#2 $display(w1, " ", x1, " ", y1, " ", z1, "   ", o1, "  ", o2, "  ", o3, "  ", o4);
-		#2 w1=1'bx; x1=1'bx; y1=1'bx; z1=1'bx;
-		#2 $display(w1, " ", x1, " ", y1, " ", z1, "   ", o1, "  ", o2, "  ", o3, "  ", o4);
-		#2 w1=1'bx; x1=1'bx; y1=1'bx; z1=1'bx;
-		#2 $display(w1, " ", x1, " ", y1, " ", z1, "   ", o1, "  ", o2, "  ", o3, "  ", o4);
-		#2 w1=1'bx; x1=1'bx; y1=1'bx; z1=1'bx;
-		#2 $display(w1, " ", x1, " ", y1, " ", z1, "   ", o1, "  ", o2, "  ", o3, "  ", o4);
-		#2 w1=1'bx; x1=1'bx; y1=1'bx; z1=1'bx;
-		#2 $display(w1, " ", x1, " ", y1, " ", z1, "   ", o1, "  ", o2, "  ", o3, "  ", o4);
-		#2 w1=1'bx; x1=1'bx; y1=1'bx; z1=1'bx;
-		#2 $display(w1, " ", x1, " ", y1, " ", z1, "   ", o1, "  ", o2, "  ", o3, "  ", o4);
-		#2 w1=1'bx; x1=1'bx; y1=1'bx; z1=1'bx;
-		#2 $display(w1, " ", x1, " ", y1, " ", z1, "   ", o1, "  ", o2, "  ", o3, "  ", o4);
-		#2 w1=1'bx; x1=1'bx; y1=1'bx; z1=1'bx;
-		#2 $display(w1, " ", x1, " ", y1, " ", z1, "   ", o1, "  ", o2, "  ", o3, "  ", o4);
-		#2 w1=1'bx; x1=1'bx; y1=1'bx; z1=1'bx;
-		#2 $display(w1, " ", x1, " ", y1, " ", z1, "   ", o1, "  ", o2, "  ", o3, "  ", o4);
-		#2 w1=1'b1; x1=1'b0; y1=1'b0; z1=1'b1;
-		#2 $display(w1, " ", x1, " ", y1, " ", z1, "   ", o1, "  ", o2, "  ", o3, "  ", o4);
-		#2 w1=1'b1; x1=1'b0; y1=1'b1; z1=1'b0;
-		#2 $display(w1, " ", x1, " ", y1, " ", z1, "   ", o1, "  ", o2, "  ", o3, "  ", o4);
-		#2 w1=1'b1; x1=1'b0; y1=1'b1; z1=1'b1;
-		#2 $display(w1, " ", x1, " ", y1, " ", z1, "   ", o1, "  ", o2, "  ", o3, "  ", o4);
-		#2 w1=1'b1; x1=1'b1; y1=1'b0; z1=1'b0;
-		#2 $display(w1, " ", x1, " ", y1, " ", z1, "   ", o1, "  ", o2, "  ", o3, "  ", o4);
-		#2 w1=1'b1; x1=1'b1; y1=1'b0; z1=1'b1;
-		#2 $display(w1, " ", x1, " ", y1, " ", z1, "   ", o1, "  ", o2, "  ", o3, "  ", o4);
-		#2 w1=1'b1; x1=1'b1; y1=1'b1; z1=1'b0;
-		#2 $display(w1, " ", x1, " ", y1, " ", z1, "   ", o1, "  ", o2, "  ", o3, "  ", o4);
-		#2 w1=1'b1; x1=1'b1; y1=1'b1; z1=1'b1;
-		#2 $display(w1, " ", x1, " ", y1, " ", z1, "   ", o1, "  ", o2, "  ", o3, "  ", o4);
-		#2 $display(" ");
+		 	$display("9's Complement of BCD:");
+		 	$display("BCD \tBCD'");
+			$monitor("%b\t%b",BCD, nBCD);
+		#1	BCD = 4'b0000; // 0
+		#1	BCD = 4'b0001; // 1	
+		#1	BCD = 4'b0010; // 2
+		#1	BCD = 4'b0011; // 3
+		#1	BCD = 4'b0100; // 4
+		#1	BCD = 4'b0101; // 5
+		#1	BCD = 4'b0110; // 6
+		#1	BCD = 4'b0111; // 7
+		#1	BCD = 4'b0000; // 8
+		#1	BCD = 4'b1001; // 9
+
 	end
 endmodule

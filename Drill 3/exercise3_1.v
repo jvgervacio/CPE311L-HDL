@@ -11,7 +11,7 @@ endmodule
 module exercise3_1_TB;
 	wire 	out[2:0];
 	reg 	a, b;
-	test2_2	tb2;
+
 	circuit2_2 t2_2(a, b, out[0]);
 	initial begin
 		a=1'b0; 	b=1'b0;
@@ -111,5 +111,7 @@ module exercise3_1_TB;
 		#2 $display("%b	\t%b \t%b", a, b, out[2]);
 		#2 a=1'bz;	b=1'bz;
 		#2 $display("%b	\t%b \t%b", a, b, out[2]);
+		
+		$stop;
 	end
 endmodule
