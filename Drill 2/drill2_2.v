@@ -1,4 +1,3 @@
-
 module drill2_2;
 	reg [3:0]Ctr, Xnr, Fdr;
 	initial begin
