@@ -1,50 +1,47 @@
-module t_flip_flop(clk, reset, t_in, t_out);
-	input clk, reset, t_in;
-	output t_out;
-	reg t_out;
+module T_Flipflop(
+	input clk, T,
+	output reg Q);
 
-	always @ (negedge clk)
-	begin
-		if(reset == 1)
-		begin
-			t_out <= 0;
-		end
-		else if (t_in == 1)
-		begin
-			t_out <= ~t_out;
-		end
+	initial	Q = 1'b1;
+
+	always @ (negedge clk) begin
+		if (T)
+			Q <= ~Q;
 		else
-		begin
-			t_out <= t_out;
-		end
+			Q <= Q;
 	end
 endmodule
 
-module circuit_tff(input clk, reset, x, output [2:0]t_out);
-	wire clk1, clk2;
-	t_flip_flop tff0(clk, reset, x, clk1);
-	buf bf1(t_out[0], clk1);
-	t_flip_flop tff1(clk1, reset, x, clk2);
-	buf bf2(t_out[1], clk2);
-	t_flip_flop tff2(clk2, reset, x, t_out[2]);
+module UpDown_Counter(
+	input clk, M, 
+	output [3:0] Q);
 
+	reg T = 1'b1;
+
+	T_Flipflop
+		tff_1(	     clk,	T,	Q[0]),
+		tff_2((M ^ Q[0]),	T,	Q[1]),
+		tff_3((M ^ Q[1]),	T,	Q[2]),
+		tff_4((M ^ Q[2]),	T,	Q[3]);
+	
 endmodule
 
 module exercise5_1;
-	reg clk, rst, t_in;
-	wire [2:0] t_out;
-	circuit_tff ctff(clk, rst, t_in, t_out);
+	reg clk, M;
+	wire [3:0] Q;
 
+	UpDown_Counter counter(clk, M, Q);
 	initial begin
-		clk=0; rst=1; t_in=0;
-		$monitor("clk = %b rst = %b ctr_state = %b%b", clk, rst, t_out, clk);
+		clk = 1'b0; 
+		forever #10 clk = ~clk;
 	end
+	
 	initial begin
-		forever #1 clk = ~clk;
+		M = 0;
+		$display("Mode: [0] Up counter, [1] Down counter");
+		$display("Mode = 0");
+		$monitor("%b", Q);
+		#340 M = 1;	$display("Mode = 1");
+		#340 $finish;
 	end
-	initial fork
-		#1 rst = 0;
-		#2 t_in = 1;
-		#16 $finish;
-	join
 endmodule

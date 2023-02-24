@@ -1,71 +1,89 @@
-module JKFF(input clk, reset,J,K, output reg Q);
- 	initial Q=0;
- 	always @(posedge clk)
- 	begin
- 		if(reset ==1)
- 		begin
- 			Q<=0;
- 		end	
- 		else
- 		begin
- 			if(J==0&&K==0)
- 			Q<=Q;
- 			else
- 			begin
- 				if(J==1&&K==0)
- 				Q<=1;
- 				else
- 					begin
- 					if(J==1&&K==1)
- 					Q<=~Q;
- 					end
- 				end
- 			end
- 		end
+module JK_Flipflop(
+	input clk, J, K,
+	output reg Q);
+ 	
+	initial Q = 1'b0;
+
+	always @(posedge clk) begin
+		case ({J,K})
+			2'b00 :  Q = Q;  
+			2'b01 :  Q = 0;  
+			2'b10 :  Q = 1;  
+			2'b11 :  Q = ~Q;
+		endcase
+	end
 endmodule
 
-module circuit(input clk, reset, X, Y, output F1, F2);
-	//input clk, reset, X, Y;
-	//output F1,F2;
-	wire Xnot;
-	wire [3:0] eor;
-	wire J1, J2, K1, K2;
-	wire A, B;
+module circuit(
+	input clk, X, Y, 
+	output F1, F2);
 
-	not M1(Xnot,X);
-	xor M2(eor[3],Y,F2), M3(eor[0],Y,F1);
-	xnor M4(eor[2],Y,F2), M5(eor[1],Y,F1);
-	and M6(J1,Xnot,eor[3]), M7(K1,Xnot, eor[2]), M8(J2,Xnot,eor[1]), M9(K2,Xnot,eor[0]);
+	reg [1:0] J, K;
+	
+	/*
+		JK EXCITATION
+		Q	Q+	J	K
 
-	JKFF jkff1(clk, reset, J1,K1,A);
-	JKFF jkff2(clk, reset, J2,K2,B);
+		0	0	0	x
+		0 	1 	1 	x
+		1	0	x	1
+		1	1	x	0
 
-	buf(F1,A);
-	buf(F2,B);
-	endmodule
+
+		INPUTS	PRESENT		NEXT		JK INPUTS
+		XY		F1	F2		F1	F2		J1	K1		J0	K0
+
+		1x		0	0		0	0		0	x		0	x
+		1x		0	1		0	1		0	x		x	0
+		1x		1	0		1	0		x	0		0	x
+		1x		1	1		1	1		x	0		x	0
+
+		00		0	1		1	1		1	x		x	0
+		00		1	1		1	0		x	0		x	1
+		00		1	0		0	0		x	1		0	x		
+		00		0	0		0	1		0	x		1	x
+
+		01		0	1		0	0		0	x		x	1		
+		01		0	0		1	0		1	x		0	x		
+		01		1	0		1	1		x	0		1	x		
+		01		1	1		0	1		x	1		x	0		
+
+		J[0] = ~X ⋅ ~Y ⋅ ~F1 + ~X ⋅ Y ⋅ F1
+		K[0] = ~X ⋅ ~Y ⋅  F1 + ~X ⋅ Y ⋅ ~F1
+		J[1] = ~X ⋅ ~Y ⋅  F2 + ~X ⋅ Y ⋅ ~F2
+		K[1] = ~X ⋅ ~Y ⋅ ~F2 +  Y ⋅ F2 
+		
+	*/
+	assign 	J[0] = (~X & ~Y &  ~F1)	| (~X & Y & F1),
+			K[0] = (~X & ~Y &  F1) 	| (~X & Y & ~F1),
+
+			J[1] = (~X & ~Y &  F2) | (~X & Y & ~F2),
+			K[1] = (~X & ~Y & ~F2) | (Y & F2);
+
+	JK_Flipflop 
+		f1(clk, J[0], K[0], F2),
+		f2(clk, J[1], K[1], F1);
+
+endmodule
 
 module exercise5_2;
-	reg clk, reset, J,K,A,B;
-	wire F1, F2;
-	circuit ckt1(clk, reset, A,B,F1,F2);
+	reg 	clk, 	X, 	Y;
+	wire 	F1, 	F2;
 
-	initial
-	begin
-	clk=0; reset =0;
-	$display("\t           T CLK  A B F1 F2");
+	circuit c(clk, X, Y, F1, F2);
+
+	initial begin
+		clk = 1'b0; 
+		forever #10 clk = ~clk;
 	end
 
 	initial begin
-	$monitor ($time,,,"%b   %b %b %b  %b ",clk,A,B,F1,F2);
-	end
-
-	always #1 clk=!clk;
-
-	initial begin
-	A = 1'b0; B = 1'b0;
-	#8 A = 1'b0; B = 1'b1;
-	#8 A = 1'b1; B = 1'b0;
-	#8 A = 1'b1; B = 1'b1;
-	#8 $finish;
+			$display("Time\tX\tY\t\tF1\tF2");
+			$monitor("%0t\t%b\t%b\t\t%b\t%b",$time, X, Y, F1, F2);
+				X <= 1'b0;	Y <= 1'b0;
+		#100	X <= 1'b0; 	Y <= 1'b1;
+		#100	X <= 1'b1; 	Y <= 1'b0;
+		#100 	X <= 1'b1; 	Y <= 1'b1;
+		#100 	$finish;
 	end
 endmodule
