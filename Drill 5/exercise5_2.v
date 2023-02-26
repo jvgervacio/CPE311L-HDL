@@ -2,14 +2,14 @@ module JK_Flipflop(
 	input clk, J, K,
 	output reg Q);
  	
-	initial Q = 1'b0;
+	initial Q <= 1'b0;
 
 	always @(posedge clk) begin
 		case ({J,K})
-			2'b00 :  Q = Q;  
-			2'b01 :  Q = 0;  
-			2'b10 :  Q = 1;  
-			2'b11 :  Q = ~Q;
+			2'b00 :  Q <= Q;  
+			2'b01 :  Q <= 0;  
+			2'b10 :  Q <= 1;  
+			2'b11 :  Q <= ~Q;
 		endcase
 	end
 endmodule
