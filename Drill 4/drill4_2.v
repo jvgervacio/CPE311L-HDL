@@ -4,7 +4,7 @@ primitive T_FF(F, clk, T);
 	reg F;
 	
 	initial F=0;
-	
+
 	table
 	// CLK T : F(STATE) : F(NEXT)
 	(01) ? : x : 0 ;

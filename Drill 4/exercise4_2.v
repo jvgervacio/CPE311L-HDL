@@ -2,31 +2,31 @@ primitive binary_subtractor(D, A, B, Cin);
 	input A, B, Cin;
 	output D;
 	table
-//  A B Cin D
-	0 0 0 : 0;
-	0 0 1 : 1;
-	0 1 0 : 1;
-	0 1 1 : 0;
-	1 0 0 : 1;
-	1 0 1 : 0;
-	1 1 0 : 0;
-	1 1 1 : 1;
+	//  A B Cin D
+		0 0 0 : 0;
+		0 0 1 : 1;
+		0 1 0 : 1;
+		0 1 1 : 0;
+		1 0 0 : 1;
+		1 0 1 : 0;
+		1 1 0 : 0;
+		1 1 1 : 1;
 	endtable
 endprimitive
-
+ 
 primitive Carry_out (Cout, A, B, Cin);
 	input A, B, Cin;
 	output Cout;
 	table
-//	A B Cin Cout
-	0 0 0 : 0;
-	0 0 1 : 1;
-	0 1 0 : 1;
-	0 1 1 : 1;
-	1 0 0 : 0;
-	1 0 1 : 0;
-	1 1 0 : 0;
-	1 1 1 : 1;
+	//	A B Cin Cout
+		0 0 0 : 0;
+		0 0 1 : 1;
+		0 1 0 : 1;
+		0 1 1 : 1;
+		1 0 0 : 0;
+		1 0 1 : 0;
+		1 1 0 : 0;
+		1 1 1 : 1;
 	endtable
 endprimitive
 
