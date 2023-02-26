@@ -1,4 +1,4 @@
-module exercise3_1(a, b, out);
+module generator(a, b, out);
 	input 	a, b;
 	output 	out[2:0];
 	
@@ -8,11 +8,11 @@ module exercise3_1(a, b, out);
 
 endmodule
 
-module exercise3_1_TB;
+module exercise3_1;
 	wire 	out[2:0];
 	reg 	a, b;
 
-	circuit2_2 t2_2(a, b, out[0]);
+	generator g(a, b, out);
 	initial begin
 		a=1'b0; 	b=1'b0;
 		#200 $finish;
@@ -21,7 +21,8 @@ module exercise3_1_TB;
 		// TRUTH TABLE FOR BUF
 		#2 $display("\nTRUTH TABLE FOR BUF: ");
 		#2 $display("a \tout");
-
+		
+		
 		#2 a=1'b0;
 		#2 $display("%b	\t%b", a, out[0]);
 		#2 a=1'b1;

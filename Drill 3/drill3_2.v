@@ -4,8 +4,8 @@ module test2_2;
 	wire 		Out2;
 	
 	initial begin
-		$display(" TIME A select Output");
-		$monitor($time,,,,,,,"%h %d %b",A, sel, Out2);
+		$display("TIME A select Output");
+		$monitor("%0t %h %d %b",$time, A, sel, Out2);
 		#50 A=4'hE;		sel=2'b00;
 		#50 A=4'hA; 	sel=2'b11;
 		#50 A=4'hC; 	sel=2'b10;
@@ -17,7 +17,7 @@ module test2_2;
 	circuit2_2 t2_2(A, sel, Out2);
 endmodule
 
-module circuit2_2(input [3:0]I, input [1:0]S, output Out1);
+module circuit2_2(input [3:0] I, input [1:0] S, output Out1);
 	wire [3:0]In;
 	wire S0not, S1not;
 	not #(2) (S0not, S[0]);
