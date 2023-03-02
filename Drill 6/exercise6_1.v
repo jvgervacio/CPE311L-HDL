@@ -14,7 +14,7 @@ module exercise6_1;
 
     initial begin
         $display("Comparing 8-bit input A & B\n");
-        $display("A\t\t\tB\t\t\t\tComparison");
+        $display("A\t\tB\t\t\tComparison");
         $monitor("%b\t%b\t\tA %s B", A,B,sign);
 
             A=8'd0;     B=8'd0;

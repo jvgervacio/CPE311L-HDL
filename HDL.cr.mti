@@ -99,14 +99,6 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	exercise6_1
 
-} {} {}} {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 6/drill6_2.v} {1 {vlog -work work -stats=none {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 6/drill6_2.v}
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module AllBit
--- Compiling module drill6_2
-
-Top level modules:
-	drill6_2
-
 } {} {}} {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 5/exercise5_3.v} {1 {vlog -work work -stats=none {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 5/exercise5_3.v}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module D_Flipflop
@@ -117,14 +109,21 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	exercise5_3
 
-} {} {}} {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 6/exercise6_2.v} {1 {vlog -work work -stats=none {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 6/exercise6_2.v}
+} {} {}} {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 6/drill6_2.v} {1 {vlog -work work -stats=none {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 6/drill6_2.v}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module T_Flipflop
--- Compiling module SequenceCounter
--- Compiling module exercise6_2
+-- Compiling module AllBit
+-- Compiling module drill6_2
 
 Top level modules:
-	exercise6_2
+	drill6_2
+
+} {} {}} {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 3/drill3_1.v} {1 {vlog -work work -stats=none {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 3/drill3_1.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module circuit2_1
+-- Compiling module test2_1
+
+Top level modules:
+	test2_1
 
 } {} {}} {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 6/drill6_3.v} {1 {vlog -work work -stats=none {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 6/drill6_3.v}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
@@ -135,13 +134,14 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	drill6_3
 
-} {} {}} {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 3/drill3_1.v} {1 {vlog -work work -stats=none {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 3/drill3_1.v}
+} {} {}} {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 6/exercise6_2.v} {1 {vlog -work work -stats=none {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 6/exercise6_2.v}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module circuit2_1
--- Compiling module test2_1
+-- Compiling module T_Flipflop
+-- Compiling module SequenceCounter
+-- Compiling module exercise6_2
 
 Top level modules:
-	test2_1
+	exercise6_2
 
 } {} {}} {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 3/drill3_2.v} {1 {vlog -work work -stats=none {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 3/drill3_2.v}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
@@ -160,13 +160,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	drill5_1
 
-} {} {}} {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 5/drill5_2.v} {1 {vlog -work work -stats=none {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 5/drill5_2.v}
+} {} {}} C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/test.v {1 {vlog -work work -stats=none C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/test.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module mux_8_1
--- Compiling module drill5_2
+-- Compiling module JK_Flipflop
+-- Compiling module test
 
 Top level modules:
-	drill5_2
+	test
 
 } {} {}} {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 1/exercise1_1.v} {1 {vlog -work work -stats=none {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 1/exercise1_1.v}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
@@ -176,29 +176,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	mytestbench
 
-} {} {}} C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/test.v {1 {vlog -work work -stats=none C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/test.v
+} {} {}} {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 5/drill5_2.v} {1 {vlog -work work -stats=none {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 5/drill5_2.v}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module JK_Flipflop
--- Compiling module test
+-- Compiling module mux_8_1
+-- Compiling module drill5_2
 
 Top level modules:
-	test
-
-} {} {}} {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 5/drill5_3.v} {1 {vlog -work work -stats=none {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 5/drill5_3.v}
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module state_diagram
--- Compiling module drill5_3
-
-Top level modules:
-	drill5_3
-
-} {} {}} {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 2/drill2_1.v} {2 {vlog -work work -stats=none {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 2/drill2_1.v}
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module drill2_1
-** Warning: C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 2/drill2_1.v(12): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
-
-Top level modules:
-	drill2_1
+	drill5_2
 
 } {} {}} {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 1/exercise1_2.v} {1 {vlog -work work -stats=none {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 1/exercise1_2.v}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
@@ -208,19 +192,21 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	testbench1_2
 
-} {} {}} {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 2/drill2_2.v} {1 {vlog -work work -stats=none {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 2/drill2_2.v}
+} {} {}} {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 2/drill2_1.v} {2 {vlog -work work -stats=none {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 2/drill2_1.v}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module drill2_2
+-- Compiling module drill2_1
+** Warning: C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 2/drill2_1.v(12): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
 
 Top level modules:
-	drill2_2
+	drill2_1
 
-} {} {}} {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 2/exercise2_1.v} {1 {vlog -work work -stats=none {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 2/exercise2_1.v}
+} {} {}} {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 5/drill5_3.v} {1 {vlog -work work -stats=none {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 5/drill5_3.v}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module exercise2_1
+-- Compiling module state_diagram
+-- Compiling module drill5_3
 
 Top level modules:
-	exercise2_1
+	drill5_3
 
 } {} {}} {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 1/exercise1_3.v} {1 {vlog -work work -stats=none {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 1/exercise1_3.v}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
@@ -230,15 +216,19 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	testbench1_3
 
-} {} {}} {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 2/drill2_3.v} {1 {vlog -work work -stats=none {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 2/drill2_3.v}
+} {} {}} {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 2/exercise2_1.v} {1 {vlog -work work -stats=none {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 2/exercise2_1.v}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module full_subtract
--- Compiling module testingFS
--- Compiling module testbench
+-- Compiling module exercise2_1
 
 Top level modules:
-	testingFS
-	testbench
+	exercise2_1
+
+} {} {}} {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 2/drill2_2.v} {1 {vlog -work work -stats=none {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 2/drill2_2.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module drill2_2
+
+Top level modules:
+	drill2_2
 
 } {} {}} {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 2/exercise2_2.v} {1 {vlog -work work -stats=none {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 2/exercise2_2.v}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
@@ -253,12 +243,15 @@ Top level modules:
 	testingFS
 	newtestbench
 
-} {} {}} {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 2/exercise2_3.v} {1 {vlog -work work -stats=none {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 2/exercise2_3.v}
+} {} {}} {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 2/drill2_3.v} {1 {vlog -work work -stats=none {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 2/drill2_3.v}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module exercise2_3
+-- Compiling module full_subtract
+-- Compiling module testingFS
+-- Compiling module testbench
 
 Top level modules:
-	exercise2_3
+	testingFS
+	testbench
 
 } {} {}} {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 3/exercise3_1.v} {1 {vlog -work work -stats=none {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 3/exercise3_1.v}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
@@ -267,5 +260,12 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 
 Top level modules:
 	exercise3_1
+
+} {} {}} {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 2/exercise2_3.v} {1 {vlog -work work -stats=none {C:/Users/jvger/OneDrive/Documents/VSCode/Verilog/HDL/Drill 2/exercise2_3.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module exercise2_3
+
+Top level modules:
+	exercise2_3
 
 } {} {}}
