@@ -1,6 +1,10 @@
-/*.mti
-/transcript
-/*.wlf
-/*.mpf
-/test.v
 /Drills/work
+/Final Requirement/Checksum.mpf
+/Final Requirement/Checksum.v.out
+/Final Requirement/transcript
+/Final Requirement/Checksum.cr.mti
+/Final Requirement/work
+/Final Requirement/Testbench.v.out
+/Final Requirement/vsim.wlf
+/Final Requirement/Sender.v
+/Final Requirement/vish_stacktrace.vstf

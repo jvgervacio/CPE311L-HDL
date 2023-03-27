@@ -7,7 +7,7 @@
 `ifdef TEST_1
 	`include "../Drill 1/drill1_1.v"
 `else
-	`include "./Drill 1/drill1_2.v"
+	`include "../Drill 1/drill1_2.v"
 `endif
 
 module testbench;
